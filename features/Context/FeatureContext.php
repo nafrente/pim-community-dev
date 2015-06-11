@@ -401,11 +401,11 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
             sleep(1);
         }
 
-        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 1);
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 2);
 
-        throw new \Exception(
-            "Timeout thrown by ".$backtrace[1]['class']."::".$backtrace[1]['function']."()\n".
-            $backtrace[1]['file'].", line ".$backtrace[1]['line']
-        );
+        echo "Spin metod error : " . PHP_EOL;
+        var_dump($backtrace);
+
+        throw new \Exception("Timeout thrown by spin metod");
     }
 }
